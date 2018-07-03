@@ -12,6 +12,7 @@ app.use(cors());
 
 sequelize.sync(); // {force: true}
 app.use(bodyParser.json());
+app.use(require('./middleware/validate-session'));
 
 app.use("/user", user);
 app.use("/coffee", coffee);
