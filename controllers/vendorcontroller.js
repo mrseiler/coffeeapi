@@ -10,7 +10,7 @@ router.post("/addvendor", function(req, res) {
     Vendor
       .create({
         name: req.body.vendor.name,
-        coffee: req.body.vendor.name,
+        coffee: req.body.vendor.coffee,
         price: req.body.vendor.price,
         email: req.body.vendor.email,
         vendorCreator: req.body.vendor.vendorCreator

@@ -54,7 +54,7 @@ Coffee
 router.get("/singlecoffee/:name", function(req, res) {
 
   Coffee
-  .findOne({
+  .findAll({
     where: {name: req.params.name}
   })
   .then(
@@ -84,7 +84,6 @@ router.get("/allcoffee", function(req, res) {
 })
 router.delete('/delete/:id', function(req, res) {
   var data = req.params.id;
-  //var user = req.user.id; 
 
   Coffee
       .destroy({ 
