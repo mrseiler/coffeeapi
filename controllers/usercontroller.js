@@ -26,9 +26,6 @@ router.post('/signup', function(req, res) {
         function createError(err){
             res.send(500, err.message);
         }
-        if(res.status(500)) {
-            send({error: "Please fill out the information correctly"});
-        }
     );
 });
 router.post('/login', function(req, res) {
