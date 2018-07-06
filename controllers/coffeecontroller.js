@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var sequelize = require('../db');
 var Coffee = sequelize.import('../models/coffeemodel');
+const Op = sequelize.Op;
 
 router.post("/addcoffee", function(req, res) {
 
@@ -51,11 +52,11 @@ Coffee
         }
     )
 });
-router.get("/singlecoffee/:name", function(req, res) {
+router.post("/singlecoffee/:name", function(req, res) {
 
   Coffee
   .findAll({
-    where: {name: req.params.name}
+    where: {name: {[Op.iLike]: `%${req.params.name}`}}
   })
   .then(
     function findOneSuccess(data){
